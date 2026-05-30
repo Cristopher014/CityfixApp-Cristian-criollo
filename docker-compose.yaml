@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    container_name: City_Fix_App
+
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+    ports:
+      - "8082:8081"
+
+    environment:
+      - NODE_ENV=development
+
+    command: sh -c "npm install && npm test && npm start"
